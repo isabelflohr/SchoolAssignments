@@ -40,9 +40,9 @@ conn.close()
 conn = sqlite3.connect('new.db')
 with conn:
     cur = conn.cursor()
-    cur.execute("SELECT col_fileType FROM tbl_fileTypes WHERE col_fileType = \
-                '?txt'")
+    cur.execute("SELECT col_fileType FROM tbl_fileTypes WHERE col_fileType LIKE \
+                '%.txt'")
     varData = cur.fetchall()
     for item in varData:
-        msg = "Text Documents: ()".format(item[0])
-    print(msg)
+        msg = "Text Documents: {}".format(item[0])
+        print(msg)
